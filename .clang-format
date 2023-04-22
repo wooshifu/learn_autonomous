@@ -1,0 +1,6 @@
+---
+Language: Cpp
+BasedOnStyle: LLVM
+SortIncludes: CaseInsensitive
+ColumnLimit: 120
+IncludeBlocks: Regroup

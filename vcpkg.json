@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "builtin-baseline": "501db0f17ef6df184fcdbfbe0f87cde2313b6ab1",
+  "name": "learn-autonomous",
+  "version-string": "0.0.1",
+  "dependencies": [
+    "armadillo",
+    "cli11",
+    "concurrentqueue",
+    "cppitertools",
+    "dbg-macro",
+    "doctest",
+    "eigen3",
+    "fastcdr",
+    "fastrtps",
+    "fmt",
+    "ghc-filesystem",
+    "glad",
+    "glbinding",
+    "glfw3",
+    "glm",
+    "hash-library",
+    "hedley",
+    "lz4",
+    "nlohmann-json",
+    "opencv",
+    "opengl",
+    {
+      "name": "pcl",
+      "features": [
+        "visualization"
+      ]
+    },
+    "poco",
+    "protobuf",
+    "re2",
+    "sdl2",
+    "spdlog",
+    "taskflow",
+    "tl-expected",
+    "yaml-cpp"
+  ]
+}
