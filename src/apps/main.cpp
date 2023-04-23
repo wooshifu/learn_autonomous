@@ -1,4 +1,5 @@
 #include "core/log.hpp"
+#include "setup_doctest/setup_doctest.h"
 #include "setup_doctest/setup_doctest_run.h"
 #include "whereami/whereami.hpp"
 

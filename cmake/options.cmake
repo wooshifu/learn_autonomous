@@ -1,4 +1,4 @@
-option(CONFIG_BUILD_SHARED_LIBS "build shared libs or not, build dynamic library by default" ON)
+option(CONFIG_BUILD_SHARED_LIBS "build shared libs or not, build static library by default" OFF)
 set(BUILD_SHARED_LIBS ${CONFIG_BUILD_SHARED_LIBS} CACHE BOOL "build shared library or not" FORCE)
 message(STATUS "BUILD_SHARED_LIBS: ${BUILD_SHARED_LIBS}")
 
