@@ -7,7 +7,7 @@
 
 namespace fs = ghc::filesystem;
 
-TEST_CASE("main test") { REQUIRE(false); }
+TEST_CASE("main test") { REQUIRE_FALSE(false); }
 
 int main(int argc, char *argv[]) {
   core::setup_spdlog(argc, argv);

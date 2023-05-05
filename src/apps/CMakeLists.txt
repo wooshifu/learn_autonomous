@@ -16,7 +16,7 @@ add_executable(pcl_vis pcl_vis.cpp)
 target_link_libraries(
         pcl_vis
         PRIVATE
-        z
+        ZLIB::ZLIB
         pcl_visualization
         pcl_features
 )

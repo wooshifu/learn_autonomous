@@ -29,6 +29,7 @@ find_package(unofficial-concurrentqueue CONFIG REQUIRED)
 find_package(unofficial-hash-library CONFIG REQUIRED)
 find_package(nlohmann_json CONFIG REQUIRED)
 find_package(yaml-cpp CONFIG REQUIRED)
+find_package(ZLIB REQUIRED)
 
 find_path(HEDLEY_INCLUDE_DIRS "hedley.h")
 include_directories(${HEDLEY_INCLUDE_DIRS})

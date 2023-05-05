@@ -15,7 +15,12 @@
     "fastrtps",
     "fmt",
     "ghc-filesystem",
-    "glad",
+    {
+      "name": "glad",
+      "features": [
+        "gl-api-latest"
+      ]
+    },
     "glbinding",
     "glfw3",
     "glm",
@@ -38,6 +43,7 @@
     "spdlog",
     "taskflow",
     "tl-expected",
-    "yaml-cpp"
+    "yaml-cpp",
+    "zlib"
   ]
 }

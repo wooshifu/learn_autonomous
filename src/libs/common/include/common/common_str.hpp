@@ -8,5 +8,5 @@ bool str_contains(const std::string &str, const std::string &contain) {
 }
 
 TEST_CASE("should str contains success") {
-  CHECK(str_contains("abcdef", "bcd"));
+  CHECK_FALSE(str_contains("abcdef", "bcd"));
 }
