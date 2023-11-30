@@ -31,15 +31,14 @@
     "nlohmann-json",
     "opencv",
     "opengl",
-    {
-      "name": "pcl",
-      "features": [
-        "visualization"
-      ]
-    },
     "pcl",
     "poco",
     "protobuf",
+    "qtbase",
+    "qtdeclarative",
+    "qtmultimedia",
+    "qtquick3d",
+    "qtquickcontrols2",
     "re2",
     "sdl2",
     "spdlog",

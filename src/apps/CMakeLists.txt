@@ -12,6 +12,7 @@ target_link_libraries(
 )
 add_test(NAME doctest_learn_autonomous COMMAND $<TARGET_FILE:learn_autonomous> --exit)
 
+#[[
 add_executable(pcl_vis pcl_vis.cpp)
 target_link_libraries(
         pcl_vis
@@ -20,3 +21,4 @@ target_link_libraries(
         pcl_visualization
         pcl_features
 )
+]]

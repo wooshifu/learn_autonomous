@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.27)
+cmake_minimum_required(VERSION 3.25)
 
 set(VCPKG_BOOTSTRAP_OPTIONS "-disableMetrics")
 set(VCPKG_TARGET_TRIPLET "x64-linux-dynamic-release" CACHE STRING "x64-linux-dynamic-release triplet" FORCE)

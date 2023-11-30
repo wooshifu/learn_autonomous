@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  learn-autonomous:
+    image: learn-autonomous:ubuntu2204
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    security_opt:
+      - seccomp:unconfined
+    volumes:
+      - ..:/learn-autonomous
+      - ../.cache/vcpkg:/root/.cache/vcpkg
+    working_dir: /learn-autonomous

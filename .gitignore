@@ -76,3 +76,4 @@ dkms.conf
 .vscode
 cmake-build-*
 build
+.cache/vcpkg/archives

@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 
   log_d("debug log");
   for (const auto &file : fs::directory_iterator(fs::path(get_executable_path()).parent_path())) {
-    SPDLOG_INFO("file: {}", fs::absolute(file.path()).lexically_normal().u8string());
+    SPDLOG_INFO("file: {}", fs::absolute(file.path()).string());
   }
   SPDLOG_WARN("warning log");
   SPDLOG_ERROR("error log");
