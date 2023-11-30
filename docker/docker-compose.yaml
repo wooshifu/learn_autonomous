@@ -12,3 +12,4 @@ services:
       - ..:/learn-autonomous
       - ../.cache/vcpkg:/root/.cache/vcpkg
     working_dir: /learn-autonomous
+    entrypoint: cmake -B build -GNinja

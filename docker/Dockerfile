@@ -9,11 +9,11 @@ RUN apt-get update && \
     echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ jammy main' | tee /etc/apt/sources.list.d/kitware.list >/dev/null && \
     apt-get update && \
     rm /usr/share/keyrings/kitware-archive-keyring.gpg && \
-    apt-get install -y kitware-archive-keyring
+    apt-get install -y kitware-archive-keyring cmake
 
 RUN apt-get install -y \
-    cmake \
     gcc \
+    g++ \
     build-essential \
     ninja-build \
     curl \
@@ -26,6 +26,7 @@ RUN apt-get install -y \
     lsb-release \
     openssl \
     clang-tidy \
+    clang-format \
     autoconf \
     autoconf-archive \
     pkg-config \
@@ -40,4 +41,18 @@ RUN apt-get install -y \
     libglu1-mesa-dev \
     libdbus-1-dev \
     libxi-dev \
-    libxtst-dev
+    libxtst-dev \
+    libtool \
+    '^libxcb.*-dev' \
+    libx11-xcb-dev \
+    libxrender-dev \
+    libxkbcommon-dev \
+    libxkbcommon-x11-dev \
+    libopengl-dev \
+    libegl-dev \
+    libx11-dev \
+    libxft-dev \
+    libxext-dev \
+    libwayland-dev \
+    libegl1-mesa-dev \
+    libibus-1.0-dev
