@@ -3,6 +3,7 @@
 if(doctest_force_link_static_lib_in_target_included)
     return()
 endif()
+
 set(doctest_force_link_static_lib_in_target_included true)
 
 # includes the file to the source with compiler flags
@@ -11,6 +12,7 @@ function(doctest_include_file_in_sources header sources)
         if(${src} MATCHES \\.\(cc|cp|cpp|CPP|c\\+\\+|cxx\)$)
             # get old flags
             get_source_file_property(old_compile_flags ${src} COMPILE_FLAGS)
+
             if(old_compile_flags STREQUAL "NOTFOUND")
                 set(old_compile_flags "")
             endif()
@@ -18,10 +20,10 @@ function(doctest_include_file_in_sources header sources)
             # update flags
             if(MSVC)
                 set_source_files_properties(${src} PROPERTIES COMPILE_FLAGS
-                        "${old_compile_flags} /FI\"${header}\"")
+                    "${old_compile_flags} /FI\"${header}\"")
             else()
                 set_source_files_properties(${src} PROPERTIES COMPILE_FLAGS
-                        "${old_compile_flags} -include \"${header}\"")
+                    "${old_compile_flags} -include \"${header}\"")
             endif()
         endif()
     endforeach()
@@ -34,18 +36,21 @@ endfunction()
 # Alternatives:
 # - use CMake object libraries instead of static libraries - >> THIS IS ACTUALLY PREFERRED << to all this CMake trickery
 # - checkout these 2 repositories:
-#   - https://github.com/pthom/cmake_registertest
-#   - https://github.com/pthom/doctest_registerlibrary
+# - https://github.com/pthom/cmake_registertest
+# - https://github.com/pthom/doctest_registerlibrary
 function(doctest_force_link_static_lib_in_target target lib)
     # check if the library has generated dummy headers
     get_target_property(DDH ${lib} DOCTEST_DUMMY_HEADER)
     get_target_property(LIB_NAME ${lib} NAME)
+
     if(${DDH} STREQUAL "DDH-NOTFOUND")
         # figure out the paths and names of the dummy headers - should be in the build folder for the target
         set(BD ${CMAKE_CURRENT_BINARY_DIR})
+
         if(NOT CMAKE_VERSION VERSION_LESS 3.4)
             get_target_property(BD ${lib} BINARY_DIR) # 'BINARY_DIR' target property unsupported before CMake 3.4 ...
         endif()
+
         set(dummy_dir ${BD}/${LIB_NAME}_DOCTEST_STATIC_LIB_FORCE_LINK_DUMMIES/)
         set(dummy_header ${dummy_dir}/all_dummies.h)
         file(MAKE_DIRECTORY ${dummy_dir})
@@ -54,6 +59,7 @@ function(doctest_force_link_static_lib_in_target target lib)
         set(curr_dummy "0")
         set(DLL_PRIVATE "#ifndef _WIN32\n#define DLL_PRIVATE __attribute__ ((visibility (\"hidden\")))\n#else\n#define DLL_PRIVATE\n#endif\n\n")
         get_target_property(lib_sources ${lib} SOURCES)
+
         foreach(src ${lib_sources})
             if(${src} MATCHES \\.\(cc|cp|cpp|CPP|c\\+\\+|cxx\)$)
                 math(EXPR curr_dummy "${curr_dummy} + 1")
@@ -63,6 +69,7 @@ function(doctest_force_link_static_lib_in_target target lib)
                 doctest_include_file_in_sources(${curr_dummy_header} ${src})
             endif()
         endforeach()
+
         set(total_dummies ${curr_dummy})
 
         # create the master dummy header
@@ -75,9 +82,11 @@ function(doctest_force_link_static_lib_in_target target lib)
 
         # call the dummy functions in the master dummy header
         file(APPEND ${dummy_header} "\nDLL_PRIVATE int dummies_for_${LIB_NAME}();\nDLL_PRIVATE int dummies_for_${LIB_NAME}() {\n    int res = 0;\n")
+
         foreach(curr_dummy RANGE 1 ${total_dummies})
             file(APPEND ${dummy_header} "    res += dummy_for_${LIB_NAME}_${curr_dummy}();\n")
         endforeach()
+
         file(APPEND ${dummy_header} "    return res;\n}\n\n} } // namespaces\n")
 
         # set the dummy header property so we don't recreate the dummy headers the next time this macro is called for this library
@@ -102,6 +111,7 @@ function(doctest_force_link_static_lib_in_target target lib)
     else()
         # if this particular library hasn't been force linked to this target
         list(FIND DFLLTD ${LIB_NAME} lib_forced_in_target)
+
         if(${lib_forced_in_target} EQUAL -1)
             foreach(src ${target_sources})
                 if(${src} MATCHES \\.\(cc|cp|cpp|CPP|c\\+\\+|cxx\)$)

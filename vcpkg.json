@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
-  "builtin-baseline": "501db0f17ef6df184fcdbfbe0f87cde2313b6ab1",
+  "builtin-baseline": "a42af01b72c28a8e1d7b48107b33e4f286a55ef6",
   "name": "learn-autonomous",
   "version-string": "0.0.1",
   "dependencies": [
@@ -13,6 +13,7 @@
     "eigen3",
     "fastcdr",
     "fastrtps",
+    "ffmpeg",
     "fmt",
     "ghc-filesystem",
     {
@@ -36,6 +37,7 @@
         "visualization"
       ]
     },
+    "pcl",
     "poco",
     "protobuf",
     "re2",
