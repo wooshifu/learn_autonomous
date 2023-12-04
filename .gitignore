@@ -72,6 +72,7 @@ Mkfile.old
 dkms.conf
 
 # Customized ignore
+.DS_Store
 .idea
 .vscode
 cmake-build-*

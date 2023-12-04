@@ -11,9 +11,6 @@
     "dbg-macro",
     "doctest",
     "eigen3",
-    "fastcdr",
-    "fastrtps",
-    "ffmpeg",
     "fmt",
     "ghc-filesystem",
     {
@@ -27,24 +24,15 @@
     "glm",
     "hash-library",
     "hedley",
-    "lz4",
     "nlohmann-json",
     "opencv",
     "opengl",
     "pcl",
-    "poco",
-    "protobuf",
-    "qtbase",
-    "qtdeclarative",
-    "qtmultimedia",
-    "qtquick3d",
-    "qtquickcontrols2",
     "re2",
     "sdl2",
     "spdlog",
     "taskflow",
     "tl-expected",
-    "yaml-cpp",
-    "zlib"
+    "yaml-cpp"
   ]
 }
