@@ -5,6 +5,12 @@
   "version-string": "0.0.1",
   "dependencies": [
     "armadillo",
+    {
+      "name": "ceres",
+      "features": [
+        "lapack"
+      ]
+    },
     "cli11",
     "concurrentqueue",
     "cppitertools",
@@ -24,6 +30,18 @@
     "glm",
     "hash-library",
     "hedley",
+    {
+      "name": "imgui",
+      "features": [
+        "docking-experimental",
+        "freetype",
+        "freetype-lunasvg",
+        "glfw-binding",
+        "opengl3-binding",
+        "sdl2-binding",
+        "wchar32"
+      ]
+    },
     "nlohmann-json",
     "opencv",
     "opengl",
